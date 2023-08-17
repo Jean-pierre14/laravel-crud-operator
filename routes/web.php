@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ListingsController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listings;
 
 // Common Ressource Rquest
 // index - show all listings
@@ -14,6 +13,8 @@ use App\Models\Listings;
 // destroy - delete listing
 
 Route::get('/', [ListingsController::class, 'index']);
+
+Route::post("/listings", [ListingsController::class, 'store']);
 
 Route::get("/listings/create", [ListingsController::class, 'create']);
 
