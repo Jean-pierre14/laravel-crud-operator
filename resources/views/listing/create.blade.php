@@ -11,30 +11,33 @@
         <form method="POST" action="/listings">
             @csrf
             <div class="mb-6">
-                <label
-                    for="company"
-                    class="inline-block text-lg mb-2"
-                    >Company Name</label
-                >
-                <input 
-                    type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
-                    name="company"/>
+                <label for="company" class="inline-block text-lg mb-2"
+                    >Company Name</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company" value="{{old('company')}}"/>
                 @error('company')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-6">
+                <label for="email" class="inline-block text-lg mb-2"
+                    >Contact us Email</label>
+                <input type="email" class="border border-gray-200 rounded p-2 w-full" name="email" value="{{old('email')}}"/>
+                @error('email')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
     
             <div class="mb-6">
-                <label for="title" class="inline-block text-lg mb-2"
-                    >Job Title</label
-                >
+                <label for="title" class="inline-block text-lg mb-2">
+                    Job Title
+                </label>
                 <input
                     type="text"
                     class="border border-gray-200 rounded p-2 w-full"
-                    name="title"
+                    name="title" value="{{old('title')}}" 
                     placeholder="Example: Senior Laravel Developer"
                 />
+                
                 @error('title')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
